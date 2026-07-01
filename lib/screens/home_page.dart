@@ -4,6 +4,8 @@ import "package:flutter_application_1/models/catalog.dart";
 import "package:flutter_application_1/widgets/drawer.dart";
 import "package:flutter_application_1/widgets/item_widget.dart";
 import "dart:convert";
+
+import "package:flutter_application_1/widgets/theme.dart";
 class HomePage extends StatefulWidget {
     const HomePage({super.key});
 
@@ -31,28 +33,69 @@ class _HomePageState extends State<HomePage> {
   @override 
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        title: Text("catalog App"
-        // ,style: TextStyle(color: Colors.black),
-        ),
-        // backgroundColor: Colors.white,
-        // elevation: 0.0,
-        // iconTheme: IconThemeData(color: Colors.black),
-      ),
-        body:Padding(
-          padding: const EdgeInsets.all(16.0),
-          child:(CatalogModel.items!=null&& CatalogModel.items.isNotEmpty)? ListView.builder(
-            itemCount: CatalogModel.items.length,
-            itemBuilder:(context,index){
-              return ItemWidget(
-                item:CatalogModel.items[index],
-              );
-            } ,
-          ):Center(
-            child: CircularProgressIndicator(),
+      body: SafeArea(
+        child: Container(
+          padding:EdgeInsets.all(32) ,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CatalogHeader(),
+           (CatalogModel.items !=null&& CatalogModel.items.isNotEmpty)?CatalogList:(child:CircularProgressIndicator)
+              ],
           ),
         ),
-          drawer: MyDrawer(),
+      ),
+    );
+  }
+}
+
+class CatalogHeader extends StatelessWidget{
+  const CatalogHeader({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return 
+        Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+               Text("Catalog App",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold,
+              color: MyTheme.darkbluishColor,
+              ),),
+            Text("Trending products",style: TextStyle(fontSize: 16),)
+           
+              ],
+          );
+  
+  }
+}
+
+
+
+class CatalogList extends StatelessWidget{
+  const CatalogList({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return ListView.builder(
+      itemCount: CatalogModel.items.length,
+      itemBuilder: (context,index){
+        final catalog = CatalogModel.items[index];
+        return CatalogItem(catalog:catalog);
+      }
       );
+  
+  }
+}
+
+class CatalogItem extends StatelessWidget{
+  final Item catalog;
+
+  const CatalogItem({super.key, required this.catalog});
+  @override
+  Widget build(BuildContext context) {
+   return Container(
+   height: 100,
+   width: 100,
+   );
   }
 }
