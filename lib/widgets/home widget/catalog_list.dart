@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/screens/home_detail_page.dart';
 import 'package:flutter_application_1/widgets/home%20widget/catalog_image.dart';
-import 'package:flutter_application_1/widgets/theme.dart';
+import 'package:flutter_application_1/widgets/Theme%20and%20extension/theme.dart';
 
 class CatalogList extends StatelessWidget {
   const CatalogList({super.key});
@@ -35,8 +35,8 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
-      height: 150,
+      width: MediaQuery.of(context).size.width * 0.9, 
+      height: 130,
       margin: EdgeInsets.symmetric(
         horizontal: 0,
         vertical: 16,
@@ -72,7 +72,7 @@ class CatalogItem extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Padding(
-                  padding: EdgeInsetsGeometry.only(right: 8.0),
+                  padding: EdgeInsetsGeometry.only(right: 2.0),
                   child: OverflowBar(
                     alignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -89,8 +89,8 @@ class CatalogItem extends StatelessWidget {
                           backgroundColor: MyTheme.darkbluishColor,
                         ),
                         child: Text(
-                          "Buy",
-                          style: TextStyle(color: Colors.white),
+                          "Add to cart",
+                          style: TextStyle(color: Colors.white,fontSize: 10),
                         ),
                       ),
                     ],

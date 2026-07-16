@@ -1,10 +1,12 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:flutter_application_1/models/catalog.dart";
+import "package:flutter_application_1/utilities/routes.dart";
+import "package:flutter_application_1/widgets/Theme%20and%20extension/extensions.dart";
 import "package:flutter_application_1/widgets/home%20widget/catalog_header.dart";
 import "package:flutter_application_1/widgets/home%20widget/catalog_list.dart";
 import "dart:convert";
-import "package:flutter_application_1/widgets/theme.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,7 +39,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: Theme.of(context).canvasColor,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).extension <MyColors> ()!. buttonColor,
+        onPressed: ()=>Navigator.pushNamed(context,MyRoute.cartRoute),
+        child: Icon(CupertinoIcons.cart,color: Colors.white,),
+      ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(32),
@@ -55,7 +62,6 @@ class _HomePageState extends State<HomePage> {
               else
               Expanded(child: 
               Center(
-                // child: CircularProgressIndicator()
               child: CircularProgressIndicator()
               ))
             ],

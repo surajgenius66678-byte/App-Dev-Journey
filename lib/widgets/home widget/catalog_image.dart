@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/theme.dart';
+import 'package:flutter_application_1/widgets/Theme%20and%20extension/theme.dart';
 class CatalogImage extends StatelessWidget {
   final String image;
 

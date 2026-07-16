@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_application_1/models/catalog.dart";
-import "package:flutter_application_1/widgets/theme.dart";
+import "package:flutter_application_1/widgets/Theme%20and%20extension/theme.dart";
 
 class HomeDetailPage extends StatelessWidget{
   final Item catalog ;
@@ -9,7 +9,9 @@ class HomeDetailPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(),
+      appBar:AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar:Material(
         color: Colors.white,
@@ -29,7 +31,7 @@ class HomeDetailPage extends StatelessWidget{
                           ),
                         ),
                         SizedBox(
-                          width: 100,
+                          width: 150,
                           height: 50,
                           child : ElevatedButton(
                           onPressed: () {},
@@ -38,7 +40,7 @@ class HomeDetailPage extends StatelessWidget{
                             
                           ),
                           child: Text(
-                            "Buy",
+                            "Add to cart",
                             style: TextStyle(color: Colors.white),
                           ),
                         )
@@ -78,6 +80,8 @@ class HomeDetailPage extends StatelessWidget{
                   catalog.desc,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
+                Padding(padding: EdgeInsetsGeometry.all(16),child:Text(catalog.description))
+                ,
                 SizedBox(height: 10),
               ],
             ),

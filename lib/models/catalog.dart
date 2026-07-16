@@ -9,8 +9,9 @@ class Item {
   final num price;
   final String  color;
   final String  image;
+  final String  description;
 
-  Item({required this.id, required this.name, required this.desc, required this.price, required this.color, required this.image});
+  Item({required this.id, required this.name, required this.desc, required this.price, required this.color, required this.image,required this.description});
 
   factory  Item.fromMap(Map<String,dynamic>map){
      return Item(
@@ -20,6 +21,7 @@ class Item {
       price:map["price"],
       color:map["color"],
       image:map["image"],
+      description : map["description"]
     );
    }
 
@@ -30,7 +32,8 @@ class Item {
     "desc" : desc,
     "price" : price,
     "color" : color,
-    "image": image
+    "image": image,
+    "description":description
    };
 }
 
