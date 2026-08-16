@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CatalogHeader(),
-              if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+              if ( CatalogModel.items.isNotEmpty)
                 Expanded(
                   child : Padding(padding: EdgeInsetsGeometry.symmetric(horizontal: 0),
                   child: CatalogList()

@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_application_1/models/catalog.dart";
 import "package:flutter_application_1/widgets/Theme%20and%20extension/extensions.dart";
-import "package:flutter_application_1/widgets/Theme%20and%20extension/theme.dart";
 import "package:flutter_application_1/widgets/home%20widget/add_to_cart.dart";
 
 class HomeDetailPage extends StatelessWidget{
