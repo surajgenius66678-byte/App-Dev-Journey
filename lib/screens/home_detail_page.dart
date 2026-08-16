@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter_application_1/models/catalog.dart";
+import "package:flutter_application_1/widgets/Theme%20and%20extension/extensions.dart";
 import "package:flutter_application_1/widgets/Theme%20and%20extension/theme.dart";
+import "package:flutter_application_1/widgets/home%20widget/add_to_cart.dart";
 
 class HomeDetailPage extends StatelessWidget{
   final Item catalog ;
@@ -12,13 +14,13 @@ class HomeDetailPage extends StatelessWidget{
       appBar:AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: Theme.of(context).canvasColor,
       bottomNavigationBar:Material(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         child:Padding(
                   padding: EdgeInsetsGeometry.all(16),
                   child: Container(
-                    color: Colors.white,
+                    color: Theme.of(context).cardColor,
                     child: OverflowBar(
                       alignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -33,17 +35,7 @@ class HomeDetailPage extends StatelessWidget{
                         SizedBox(
                           width: 150,
                           height: 50,
-                          child : ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: MyTheme.darkbluishColor,
-                            
-                          ),
-                          child: Text(
-                            "Add to cart",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        )
+                          child : AddToCart(catalog: catalog),
                         ),
                       ],
                     ),
@@ -63,7 +55,7 @@ class HomeDetailPage extends StatelessWidget{
        Expanded(
         child: ClipPath(
           child: Container(
-            color: Colors.white,
+            color: Theme.of(context).cardColor,
            width: MediaQuery.of(context).size.width,
             child: Padding(padding: EdgeInsetsGeometry.fromLTRB(0, 48, 0, 48),
             child: Column(
@@ -71,7 +63,7 @@ class HomeDetailPage extends StatelessWidget{
                 Text(
                   catalog.name,
                   style: TextStyle(
-                    color: MyTheme.darkbluishColor,
+                    color: Theme.of(context).extension<MyColors>()!.accentColor,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -82,7 +74,7 @@ class HomeDetailPage extends StatelessWidget{
                 ),
                 Padding(padding: EdgeInsetsGeometry.all(16),child:Text(catalog.description))
                 ,
-                SizedBox(height: 10),
+                SizedBox(height: 10 ),
               ],
             ),
             ),

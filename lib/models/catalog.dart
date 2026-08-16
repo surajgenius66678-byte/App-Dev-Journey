@@ -1,5 +1,15 @@
-class CatalogModel {
-  static var items ;
+
+class  CatalogModel {
+
+  static final catModel = CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel() => catModel;
+  
+  static List<Item> items =[];
+  Item  getById(int id)=>
+  items.firstWhere((element)=> element.id==id , orElse : null );
+
+  Item getByPosition(int pos)=> items[pos];
 }
 
 class Item {
@@ -7,7 +17,7 @@ class Item {
   final String  name ;
   final String  desc;
   final num price;
-  final String  color;
+  final String   color;
   final String  image;
   final String  description;
 

@@ -46,11 +46,11 @@
 // }
 
 
-void(){
-print (   Constants.grreting);
-}
-class Constants{
-    String greeting ='Hello ,How are you ';
-    String bye = 'Bye';
+// void(){
+// print (   Constants.grreting);
+// }
+// class Constants{
+//     String greeting ='Hello ,How are you ';
+//     String bye = 'Bye';
 
-}
+// }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/screens/home_detail_page.dart';
+import 'package:flutter_application_1/widgets/Theme%20and%20extension/extensions.dart';
+import 'package:flutter_application_1/widgets/home%20widget/add_to_cart.dart';
 import 'package:flutter_application_1/widgets/home%20widget/catalog_image.dart';
-import 'package:flutter_application_1/widgets/Theme%20and%20extension/theme.dart';
 
 class CatalogList extends StatelessWidget {
   const CatalogList({super.key});
@@ -35,7 +36,7 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.9, 
+      width: MediaQuery.of(context).size.width * 0.9,
       height: 130,
       margin: EdgeInsets.symmetric(
         horizontal: 0,
@@ -43,7 +44,7 @@ class CatalogItem extends StatelessWidget {
       ), // space outside the card
       // padding: EdgeInsets.all(16), // space inside the card
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -61,7 +62,7 @@ class CatalogItem extends StatelessWidget {
                 Text(
                   catalog.name,
                   style: TextStyle(
-                    color: MyTheme.darkbluishColor,
+                    color: Theme.of(context).extension<MyColors>()!.accentColor,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -83,16 +84,7 @@ class CatalogItem extends StatelessWidget {
                           fontSize: 18,
                         ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: MyTheme.darkbluishColor,
-                        ),
-                        child: Text(
-                          "Add to cart",
-                          style: TextStyle(color: Colors.white,fontSize: 10),
-                        ),
-                      ),
+                      AddToCart(catalog: catalog),
                     ],
                   ),
                 ),
@@ -104,3 +96,4 @@ class CatalogItem extends StatelessWidget {
     );
   }
 }
+
